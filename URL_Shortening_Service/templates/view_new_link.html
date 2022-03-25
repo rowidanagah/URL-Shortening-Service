@@ -1,0 +1,23 @@
+
+{% extends 'base_Layout.html' %}
+	{% block body %}
+		<form class="border p-3 rounded shadow mt-2">
+			<section>
+				<ul id="Results">
+					<li id="CalculatedAns">
+						<label>Original URL</label> 
+						<input type="text" name="original_url" value="{{ original_URL }}">
+					</li>
+					<li id="CalculatedAns">
+						<label>Your Shorten Link</label>
+						<input type="text" name="shorten_link" value="{{ Shorten_URL }}">
+					</li>
+				</ul>
+				<ul id="">
+					<li id="Redirect">
+						<a href="{{ original_URL }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Redirect to the URL..?</a>
+					</li>
+				</ul>
+			</section>
+		</form>
+	{% endblock %}

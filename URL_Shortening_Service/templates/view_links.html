@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Links Added</title>
+    {% extends 'base_Layout.html' %}
+</head>
+<body>
+
+	{% block body%}
+	<ul class="list-gorub">
+		<table class="table table-striped">
+			<tr>
+				{% for row_title in row_titles %}
+				<th>{{row_title}}</th>
+				{% endfor %}
+			</tr>
+
+			{% for link in links %}
+			<tr>
+				<td>{{ link.original_url}}</td>
+				<td>{{ link.shorten_url}}</td>
+				<td>{{ link.visits}}</td>
+		        <td>
+	          	 <form action="/delet_link/{{link.id}}" method="POST">
+	            	<input type="hidden" name="_method" value="Delet">
+		            <input type="submit" name="Delet" value=Delet class="btn btn-danger">
+		          </form>
+		        </td>
+			</tr>
+			{% endfor %} 
+		</table>
+	</ul>  
+	{% endblock %}
+</body>
+</head>

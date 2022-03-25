@@ -1,0 +1,11 @@
+{% extends 'base_Layout.html' %}
+
+{% block body%}
+		<form class="col-xs-12" method="POST" action="">
+			<h3>Shorten URL Services </h3>
+			<input type="text" class="form-control form-control-lg" id="Searchbar" name="original_url" placeholder="Enter the Original Link">
+			<input type="text" class="form-control form-control-lg" id="Searchbar_custom" 
+				name="custom" placeholder="Enter A Custom Suffix">
+			<button class="btn btn-primary mb-2" id="Searchbtn">Shorten URL</button>
+		</form>
+{% endblock %}
