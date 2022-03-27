@@ -22,24 +22,22 @@ __Fuctional Requirements :__
 
 ## System APIs ..
 Following could be the definitions of the APIs for creating and deleting URLs:  
- > createURL(api_dev_key, original_url, custom_alias=None, user_name=None,
+ > createURL( original_url, custom_alias=None, user_name=None,
 expire_date=None)
 __Parameters:__ 
-  - api_dev_key (string): The API developer key of a registered account. This will be used to, among other 
-  - things, throttle users based on their allocated quota.
   - `original_url (string)`: Original URL to be shortened.
   - `custom_alias (string)`: Optional custom key for the URL.
   - `user_name (string)`: Optional user name to be used in encoding.
-  - expire_date (string): Optional expiration date for the shortened URL.
+  - `expire_date (string)`: Optional expiration date for the shortened URL.
 
 __Returns: (string)__ 
   - _A successful insertion returns the shortened URL; otherwise, it returns an error code._ 
 
-> deleteURL(api_dev_key, url_key)
+> deleteURL(url_key)
 __Parameters:__ 
   -  `“url_key”` is a string representing the shortened URL to be retrieved. A successful deletion 
 __Returns__ 
-  - ‘URL Removed’. 
+  - ‘URL Removed’ and to redirect users to the home page. 
 
 ---
  __How do we detect and prevent abuse?__
@@ -54,14 +52,15 @@ __Returns__
   - One for storing information about the URL mappings
   - And one for the user’s data who created the short link.
 
+> For now we only focus on the __Link__ Table only.
 
 ## Basic System Design and Algorithm..
 
 we are solving here is, how to generate a short and unique key for a given URL, the question can be simplified like this – given a URL, how can we find hash function F that maps URL to a short alias:
 `F(URL) = alias`
-and satisfies following condition:s
+and satisfies following conditions:
 
-Each URL can only be mapped to a unique alias
-Each alias can be mapped back to a unique URL easily
-The second condition is the core as in the run time, the system should look up by alias and redirect to the corresponding URL quickly.
+- Each URL can only be mapped to a unique alias
+- Each alias can be mapped back to a unique URL easily
+- The second condition is the core as in the run time, the system should look up by alias and redirect to the corresponding URL quickly.
 
