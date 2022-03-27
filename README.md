@@ -64,3 +64,10 @@ and satisfies following conditions:
 - Each alias can be mapped back to a unique URL easily
 - The second condition is the core as in the run time, the system should look up by alias and redirect to the corresponding URL quickly.
 
+## Installed Packages
+
+On running this command 
+```
+pip freeze > requirements.txt
+```
+we got this [requirements.txt](https://github.com/Rowida46/URL-Shortening-Service/blob/main/requirements.txt) File
